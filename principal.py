@@ -8,6 +8,10 @@ from tkinter import filedialog
 import sqlite3
 from PIL import Image, ImageTk
 
+def limpiar():
+    entryName.delete(0,END)
+    entryPhone.delete(0,END)
+    entryInfo.delete(0,END)
 
 def add_customer():
 
@@ -21,6 +25,7 @@ def add_customer():
         select= mostrarDBDesc()
         select = list(select)
         tree.insert("",END,values=select[0])
+        limpiar()
 
 def delete_customer():
     idselection = tree.item(tree.selection())['values'][0]
@@ -45,6 +50,7 @@ def edit_customer():
         select = mostrarDBDesc()
         select = list(select)
         tree.insert("", END, values=select[0])
+        limpiar()
 
 def browserPhoto():
     entryPhoto.delete(0,END)
